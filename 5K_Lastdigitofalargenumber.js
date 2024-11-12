@@ -1,4 +1,8 @@
 function lastDigit(n, m) {  
-    return n**m % 10
-  }
-  console.log(lastDigit(9n,7n))
+    if (m === 0n) return 1n;
+    let base = n % 10n;      
+    let exponent = m % 4n === 0n ? 4n : m % 4n; 
+    return base ** exponent % 10n;
+}
+
+console.log(lastDigit(9n, 7n));
