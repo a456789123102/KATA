@@ -1,10 +1,8 @@
 function reverse(arr) {
-let left = 0;
-let right = arr.length-1;
-while(left < right){
-[arr[left],arr[right]] = [arr[right],arr[left]]
-left++;
-right--;
+for(let i = 0 ; i < arr.length/2; i++){
+    let temp = arr[arr.length-1-i];
+    arr[arr.length-1-i] = arr[i];
+    arr[i] = temp;
 }
 return arr
  }
