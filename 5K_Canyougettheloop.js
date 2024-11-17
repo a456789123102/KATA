@@ -3,8 +3,8 @@ function loop_size(node) {
     let fast = node;
     
     while(true){
-        slow = node.getNext();
-        fast = node.getNext().getNext();
+        slow = slow.getNext();
+        fast = fast.getNext().getNext();
 
         if(slow === fast){
             break
