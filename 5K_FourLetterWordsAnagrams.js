@@ -56,9 +56,9 @@ function anagrams(subjects, memories, players) {
       });
  if(playerTeamOneScore !== playerTeamTwoScore){
   if(player[0] < 2 && playerTeamOneScore > playerTeamTwoScore){
-    teamOneScore++; console.log(`player team one won score`);
+    teamOneScore++; 
   } else if(player[1] < 2 && playerTeamOneScore < playerTeamTwoScore){
-    teamOneScore++; console.log(`player team one won score`);
+    teamOneScore++; 
   }else{
     teamTwoScore++
   }
