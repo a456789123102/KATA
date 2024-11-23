@@ -1,16 +1,19 @@
-// function moveZeros(arr) {
-//     const newArr = arr.filter(e => e !== 0);
-//    "0".repeat(arr.length - newArr.length).split('').forEach(e => newArr.push(parseInt(e)))
-//    return newArr
-//   }
- function moveZeros(arr) {
-    let nonZeroIndex = 0;
-    for(let i = 0 ; i < arr.length ; i ++){
-        if(arr[i] !== 0){
-            [arr[nonZeroIndex], arr[i]] = [arr[i], arr[nonZeroIndex]];
-            nonZeroIndex ++;
-        }
+
+function convertFrac(lst){
+    let ans = ""
+    function gcd(a, b) {
+        return b === 0 ? a : gcd(b, a % b);
     }
-    return arr;
-}
-  console.log(moveZeros([1,2,0,1,0,1,0,3,0,1]))
+    function lcm(a, b) {
+        return (a * b) / gcd(a, b);
+    }
+    let maxDenom = lst.reduce((acc, [_, denom]) => lcm(acc, denom), 1);
+
+    for (let [numer, denom] of lst) {
+        let newNumer = numer * (maxDenom / denom);
+        ans += `(${newNumer},${maxDenom})`;
+    }
+    
+    return ans;
+  }
+  console.log(convertFrac([ [1, 2], [1, 3], [1, 4] ]))
