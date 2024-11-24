@@ -1,69 +1,61 @@
-function validateSudoku(board) {
-    //check row && col
-    let setCol = new Set();
-    let setRow = new Set();
-    let subgrid = new Set();
-    for(let i = 0 ; i < board.length ; i++){
-        for(let j =  0 ; j < board[i].length ; j++){
-            const subgridChar = board[ 3 * Math.floor(i/3) + Math.floor(j/3)][(( i * 3 ) % 9 ) + ( j % 3 )];
-if(setCol.has(board[i][j])|| setRow.has(board[j][i]) ||subgrid.has(subgridChar) || !/[1-9]/.test(board[i][j]) ||!/[1-9]/.test(board[j][i]) ||/[1-9]/.test(subgrid)) return false; //check valid value
-setCol.add(board[i][j]);
-setRow.add(board[j][i]);
-subgrid.add(subgridChar)
-//checkSubGrid how ??
+//row col เช็คพร้อมกัน แต่ grid เช็คแยกต่างหาก
 
-        }
-        setCol.clear();
-        setRow.clear();
-        subgrid.clear();
+function progress(puzzle) {
+  let rowCol = new Set();
+  let zeroPosition = null;
+  for (let i = 0; i < puzzle.length; i++) {
+    for (let j = 0; j < puzzle[i].length; j++) {
+      const subgridChar =
+        puzzle[3 * Math.floor(i / 3) + Math.floor(j / 3)][
+          ((i * 3) % 9) + (j % 3)
+        ];
+  
+      console.log(`Round ${i}, Index [${i}, ${j}], SubgridChar = ${subgridChar}`);
+  
+      if (puzzle[i][j] !== 0) {
+        console.log(`Adding ${puzzle[i][j]} from row`);
+        rowCol.add(puzzle[i][j]);
+      }
+      if (puzzle[j][i] !== 0) {
+        console.log(`Adding ${puzzle[j][i]} from column`);
+        rowCol.add(puzzle[j][i]);
+      }
+      if (subgridChar !== 0) {
+        console.log(`Adding ${subgridChar} from subgrid`);
+        rowCol.add(subgridChar);
+      }
+  
+      console.log(`Current rowCol: ${[...rowCol]}`);
     }
-
-    
-
-
-    return true;
+  
+    console.log(`End of Round ${i}: rowCol = ${[...rowCol]}`);
+    rowCol.clear();
+    zeroPosition = null;
+  }
 }
-console.log(validateSudoku(
-    [ [1,3,2,5,7,9,4,6,8],
-      [4,9,8,2,6,1,3,7,5],
-      [7,5,6,3,8,4,2,1,9],
-      [6,4,3,1,5,8,7,9,2],
-      [5,2,1,7,9,3,8,4,6],
-      [9,8,7,4,2,6,5,3,1],
-      [2,1,4,9,3,5,6,8,7],
-      [3,6,5,8,1,7,9,2,4],
-      [8,7,9,6,4,2,1,5,3]]
-))
-console.log(validateSudoku(
-    [[8,4,7,2,6,5,1,0,3],
-      [1,3,6,7,0,8,2,4,5],
-      [0,5,2,1,4,3,8,6,7],
-      [4,2,0,6,7,1,5,3,8],
-      [6,7,8,5,3,2,0,1,4],
-      [3,1,5,4,8,0,7,2,6],
-      [5,6,4,0,1,7,3,8,2],
-      [7,8,1,3,2,4,6,5,0],
-      [2,0,3,8,5,6,4,7,1]] // a valid board, but with 0 instead of 9
-))
-console.log(validateSudoku(
-    [ [1,3,2,5,7,9,4,6,8],
-      [4,9,8,2,6,1,3,7,5],
-      [7,5,6,3,8,4,2,1,9],
-      [6,4,3,1,5,8,7,9,2],
-      [5,2,1,7,9,3,8,4,6],
-      [9,8,7,4,2,6,5,3,1],
-      [2,1,4,9,3,5,6,8,7],
-      [3,6,5,8,1,7,9,2,4], 
-      [8,7,9,6,4,2,1,3,5]] // duplicated '3' in eighth column
-))
-console.log(validateSudoku
-  [ [1,3,2,5,7,9,4,6,8],
-    [4,9,8,2,6,1,3,7,5],
-    [7,5,6,3,8,4,2,1,9],
-    [6,4,3,1,5,8,7,9,2],
-    [5,2,1,7,9,3,8,4,6],
-    [9,8,7,4,2,6,5,3,1],
-    [1,1,4,9,3,5,6,8,7],
-    [3,6,5,8,1,7,9,2,4],
-    [8,7,9,6,4,2,1,5,3]]
-)
+// console.log(
+//   progress([
+//     [1, 8, 9, 0, 0, 0, 0, 0, 0],
+//     [0, 2, 7, 0, 0, 0, 0, 0, 0],
+//     [6, 5, 4, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 8, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+//   ])
+// );
+console.log(
+  progress([
+    [0, 1, 7, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 5, 0, 6, 0],
+    [8, 3, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 8, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 4, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 9, 0, 0, 0, 0, 0, 0, 0],
+  ])
+);
