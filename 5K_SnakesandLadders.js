@@ -37,7 +37,7 @@ if (this.currentPlayer === 1) {
   }
   if (this.player1 === 100) {
     this.currentPlayer = 2;
-    return 'Player 1 wins!';
+    return 'Player 1 Wins!';
   }
 if(this.player1 in SnakeAndLadder) this.player1 = SnakeAndLadder[this.player1];
 if(die1 !== die2) this.currentPlayer = 2;
@@ -51,7 +51,7 @@ if (this.currentPlayer === 2) {
   }
   if (this.player2 === 100) {
     this.currentPlayer = 1;
-    return 'Player 2 wins!';
+    return 'Player 2 Wins!';
   }
 if(this.player2 in SnakeAndLadder) this.player2 = SnakeAndLadder[this.player2];
 if(die1 !== die2) this.currentPlayer = 1;
@@ -63,3 +63,4 @@ console.log(game.play(1, 1));
 console.log(game.play(1, 2));
 console.log(game.play(3, 3));
 console.log(game.play(3, 4));
+
