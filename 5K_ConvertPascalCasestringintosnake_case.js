@@ -13,4 +13,4 @@ const newStr = string.split("").map((e,i) =>{
  })
 return newStr.join('');
 }
-console.log(toUnderscore("'\'5\''"));8
+console.log(toUnderscore("'\'5\''"));
