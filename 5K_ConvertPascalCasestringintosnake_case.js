@@ -1,8 +1,8 @@
 function toUnderscore(string) {
   if (typeof string !== 'string') {
-    return string
+    return  String(string)
   }
-const newStr = string.split('').map((e,i) =>{
+const newStr = string.split("").map((e,i) =>{
   if(/[A-Z]/.test(e)){
     if(i === 0) return e.toLowerCase();
     return "_"+e.toLowerCase();
@@ -13,4 +13,4 @@ const newStr = string.split('').map((e,i) =>{
  })
 return newStr.join('');
 }
-console.log(toUnderscore("'\'5\''"));
+console.log(toUnderscore("'\'5\''"));8
