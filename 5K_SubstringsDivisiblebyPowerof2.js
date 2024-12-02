@@ -47,7 +47,7 @@ function subPowerOf2(s, p) {
     }
     const result = [];
     for (let i = 0; i < n; i++) {
-        let validSubstringCountAtIndex = countDivisibleSubstrings[i]; // จำนวนซับสตริงที่ถูกต้องจากตำแหน่ง i
+        let validSubstringCountAtIndex = countDivisibleSubstrings[i]; 
         for (let j = Math.min(n, i + p - 1); j > i; j--) {
           validSubstringCountAtIndex += (parseInt(s.slice(i, j)) % divisor === 0);
         }
