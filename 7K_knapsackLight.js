@@ -29,16 +29,13 @@ function knapsackLight(value1, weight1, value2, weight2, maxW) {
         if (weights[i - 1] <= w) {
           //ตราบใดที่น้ำหนักยังไม่เกิน length ของ col
           dp[i][w] = Math.max(
-            dp[i - 1][w],
-            dp[i - 1][w - weights[i - 1]] + vals[i - 1]
-          ); //ค่าใช้จ่ายสูงสุด หรือ มูลค่าสูงสุด ที่สามารถเก็บได้ในกระเป๋า
+            dp[i - 1][w],dp[i - 1][w - weights[i - 1]] + vals[i - 1]); //ค่าใช้จ่ายสูงสุด หรือ มูลค่าสูงสุด ที่สามารถเก็บได้ในกระเป๋า
         } else {
           dp[i][w] = dp[i - 1][w];
         }
       }
     }
-    //return dp[n][maxW];
-    return dp
+    return dp[n][maxW];
   }
   return knapsack([value1, value2], [weight1, weight2], maxW);
 }
