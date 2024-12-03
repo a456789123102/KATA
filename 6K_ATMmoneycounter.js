@@ -28,5 +28,3 @@ function atm(value) {
 return result.join(', ')
 }
 console.log(atm("125rub"))
-'20 * 500 UAH, 2 * 100 UAH, 1 * 2 UAH'
-'20 * 500 UAH,2 * 100 UAH,1 * 2 UAH'
