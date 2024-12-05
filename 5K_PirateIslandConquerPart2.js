@@ -27,7 +27,6 @@ targetIsland.sort((a,b) =>{
 const min = Math.min(...pirateIsland.map(p => mh(p,targetIsland[0])));
 return targetIsland.filter(island => 
     Math.min(...pirateIsland.map(p => mh(p, island))) === min);
-
 }
 console.log(
   conquerIsland([
