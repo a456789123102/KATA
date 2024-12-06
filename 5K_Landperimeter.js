@@ -31,7 +31,6 @@ function landPerimeter(arr) {
     }
     ans += 4 - res;
   }
-
   queue.forEach((e) => countside(arr, e));
   return `Total land perimeter: ${ans}` ;
 }
