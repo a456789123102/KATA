@@ -35,23 +35,7 @@
 
 //lets find another ways
 
-function polyGroup(n, k) {
-    function recursive(start) {
-        const max = n + 1 - k + currComb.length % k
-      // วนลูปเพื่อเพิ่มตัวเลขใน currComb
-      for (let i = start; i < max; i++) {
-        currComb.push(i); 
-        recursive(i + 1); 
-        if(currComb.length % k === 0) comb.push(currComb.slice());
-        currComb.pop(); 
-      }
-    }
-    const comb = []; 
-    const currComb = []; 
-    recursive(0);
-    return comb;
-  }
-  console.log(polyGroup(4, 2)); 
+
   
   function polyGroup(n, k) {
     const rec = (start) => {
