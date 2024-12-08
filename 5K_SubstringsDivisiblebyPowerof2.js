@@ -14,6 +14,7 @@
 // }
 // console.log(subPowerOf2("1048", 3));
 //times up need to improve  efficient approach
+
 //Small 1 (100 tests, 10 <= s.length <= 50, 1 <= p <= 5)
 // function subPowerOf2(s, p) {
 //   const result = [];

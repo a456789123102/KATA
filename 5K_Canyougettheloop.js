@@ -19,3 +19,19 @@ function loop_size(node) {
     }while(slow !== fast);
     return loopLength;
 }
+
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;  
+    }
+
+    getNext() {
+        return this.next; 
+    }
+
+    setNext(node) {
+        this.next = node; 
+    }
+}
