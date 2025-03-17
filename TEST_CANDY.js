@@ -15,3 +15,4 @@ function giveCandy(arr) {
 console.log(giveCandy([5, 4, 3, 3, 2, 3]));
 console.log(giveCandy([1, 0, 2]));
 console.log(giveCandy([1, 1, 1]));
+
